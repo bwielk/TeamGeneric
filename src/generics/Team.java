@@ -30,4 +30,25 @@ public class Team {
 	public ArrayList getMembers(){
 		return members;
 	}
+	
+	public int getWins(){
+		return won;
+	}
+	
+	public int getLost(){
+		return lost;
+	}
+	
+	public void matchResult(Team opponent, int ourScore, int theirScore){
+		if(ourScore > theirScore){
+			won++;
+		}else if(theirScore == ourScore){
+			tied++;
+		}else{
+			lost++;
+		}
+		if(opponent != null){
+			opponent.matchResult(null, theirScore, ourScore);
+		}
+	}
 }
