@@ -2,7 +2,7 @@ package generics;
 
 import java.util.ArrayList;
 
-public class Team<T extends Player>{
+public class Team<T extends Player> implements Comparable<Team<T>>{
 	
 	private String name;
 	private int won = 0;
@@ -48,6 +48,19 @@ public class Team<T extends Player>{
 		}
 		if(opponent != null){
 			opponent.matchResult(null, theirScore, ourScore);
+		}
+	}
+
+	private int ranking(){
+		return (won*2)+tied;
+	}
+	public int compareTo(Team<T> team) {
+		if(ranking() > team.ranking()){
+			return 1;
+		}else if(ranking() < team.ranking()){
+			return -1;
+		}else{
+			return 0;
 		}
 	}
 }

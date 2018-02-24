@@ -73,4 +73,18 @@ public class TeamTest {
 		assertEquals(0, footballOpponent.getWins());
 		assertEquals(1, footballOpponent.getLost());
 	}
+	
+	@Test
+	public void footballTeamsCanBeComparedInTermsOfScores(){
+		footballTeam.matchResult(footballOpponent, 5, 2);
+		assertEquals(1, footballTeam.compareTo(footballOpponent));
+		footballTeam.matchResult(footballOpponent, 2, 2);
+		assertEquals(1, footballTeam.compareTo(footballOpponent));
+		footballTeam.matchResult(footballOpponent, 3, 2);
+		assertEquals(1, footballTeam.compareTo(footballOpponent));
+		footballTeam.matchResult(footballOpponent, 2, 7);
+		assertEquals(1, footballTeam.compareTo(footballOpponent));
+		footballTeam.matchResult(footballOpponent, 1, 3);
+		assertEquals(0, footballTeam.compareTo(footballOpponent));
+	}
 }
