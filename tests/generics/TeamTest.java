@@ -58,19 +58,19 @@ public class TeamTest {
 	
 	@Test
 	public void teamCannotAcceptTheSamePlayer(){
-		assertEquals(true, team.addPlayer(baseball));
-		assertEquals(true, team.addPlayer(football));
-		assertEquals(true, team.addPlayer(soccer));
-		assertEquals(false, team.addPlayer(baseball));
-		assertEquals(3, team.getMembers().size());
+		assertEquals(true, baseballTeam.addPlayer(baseball));
+		assertEquals(true, footballTeam.addPlayer(football));
+		assertEquals(true, soccerTeam.addPlayer(soccer));
+		assertEquals(false, baseballTeam.addPlayer(baseball));
+		assertEquals(1, baseballTeam.getMembers().size());
 	}
 	
 	@Test
 	public void teamIsUpdatedIfWinsWithOpponent(){
-		team.matchResult(opponent, 2, 1);
-		assertEquals(1, team.getWins());
-		assertEquals(0, team.getLost());
-		assertEquals(0, opponent.getWins());
-		assertEquals(1, opponent.getLost());
+		footballTeam.matchResult(footballOpponent, 2, 1);
+		assertEquals(1, footballTeam.getWins());
+		assertEquals(0, footballTeam.getLost());
+		assertEquals(0, footballOpponent.getWins());
+		assertEquals(1, footballOpponent.getLost());
 	}
 }

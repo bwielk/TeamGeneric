@@ -2,7 +2,7 @@ package generics;
 
 import java.util.ArrayList;
 
-public class Team<T>{
+public class Team<T extends Player>{
 	
 	private String name;
 	private int won = 0;
@@ -18,9 +18,9 @@ public class Team<T>{
 		return name;
 	}
 	
-	public boolean addPlayer(T player){
+	public boolean addPlayer(Player player){
 		if(!members.contains(player)){
-			members.add(player);
+			members.add((T) player);
 			return true;
 		}
 		return false;
