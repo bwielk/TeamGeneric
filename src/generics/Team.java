@@ -2,14 +2,13 @@ package generics;
 
 import java.util.ArrayList;
 
-public class Team {
+public class Team<T>{
 	
 	private String name;
-	private int player = 0;
 	private int won = 0;
 	private int lost = 0;
 	private int tied = 0;
-	private ArrayList<Player> members = new ArrayList<>();
+	private ArrayList<T> members = new ArrayList<>();
 	
 	public Team(String name){
 		this.name = name;
@@ -19,7 +18,7 @@ public class Team {
 		return name;
 	}
 	
-	public boolean addPlayer(Player player){
+	public boolean addPlayer(T player){
 		if(!members.contains(player)){
 			members.add(player);
 			return true;
@@ -39,7 +38,7 @@ public class Team {
 		return lost;
 	}
 	
-	public void matchResult(Team opponent, int ourScore, int theirScore){
+	public void matchResult(Team<T> opponent, int ourScore, int theirScore){
 		if(ourScore > theirScore){
 			won++;
 		}else if(theirScore == ourScore){
