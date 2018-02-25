@@ -18,15 +18,15 @@ public class Team<T extends Player> implements Comparable<Team<T>>{
 		return name;
 	}
 	
-	public boolean addPlayer(Player player){
+	public boolean addPlayer(T player){
 		if(!members.contains(player)){
-			members.add((T) player);
+			members.add(player);
 			return true;
 		}
 		return false;
 	}
 	
-	public ArrayList getMembers(){
+	public ArrayList<T> getMembers(){
 		return members;
 	}
 	

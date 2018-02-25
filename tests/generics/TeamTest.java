@@ -48,9 +48,9 @@ public class TeamTest {
 	
 	@Test
 	public void teamAcceptsPlayers(){
-		assertEquals(true, baseballTeam.addPlayer(baseball));
-		assertEquals(true, footballTeam.addPlayer(football));
-		assertEquals(true, soccerTeam.addPlayer(soccer));
+		assertEquals(true, baseballTeam.addPlayer((BaseballPlayer)baseball));
+		assertEquals(true, footballTeam.addPlayer((FootballPlayer)football));
+		assertEquals(true, soccerTeam.addPlayer((SoccerPlayer)soccer));
 		assertEquals(1, baseballTeam.getMembers().size());
 		assertEquals(1, soccerTeam.getMembers().size());
 		assertEquals(1, footballTeam.getMembers().size());
@@ -58,10 +58,10 @@ public class TeamTest {
 	
 	@Test
 	public void teamCannotAcceptTheSamePlayer(){
-		assertEquals(true, baseballTeam.addPlayer(baseball));
-		assertEquals(true, footballTeam.addPlayer(football));
-		assertEquals(true, soccerTeam.addPlayer(soccer));
-		assertEquals(false, baseballTeam.addPlayer(baseball));
+		assertEquals(true, baseballTeam.addPlayer((BaseballPlayer)baseball));
+		assertEquals(true, footballTeam.addPlayer((FootballPlayer)football));
+		assertEquals(true, soccerTeam.addPlayer((SoccerPlayer)soccer));
+		assertEquals(false, baseballTeam.addPlayer((BaseballPlayer)baseball));
 		assertEquals(1, baseballTeam.getMembers().size());
 	}
 	
